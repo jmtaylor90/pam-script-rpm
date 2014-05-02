@@ -18,12 +18,8 @@ Source3:        %{name}.if
 BuildRequires:  pam-devel 
 BuildRequires:  checkpolicy
 BuildRequires:  selinux-policy-devel
-BuildRequires:  selinux-policy-doc
 
 Requires:       pam       
-%if "%{selinux_policyver}" != ""
-Requires:       selinux-policy >= %{selinux_policyver}
-%endif
 Requires:       policycoreutils
 Requires:       policycoreutils-python
 
