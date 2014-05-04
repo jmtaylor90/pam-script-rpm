@@ -1,3 +1,4 @@
+%global _hardened_build 1
 %global upstream_name pam_script
 %global selinux_variants mls strict targeted
 %global selinux_policyver %(%{__sed} -e 's,.*selinux-policy-\\([^/]*\\)/.*,\\1,' /usr/share/selinux/devel/policyhelp || echo 0.0.0)
@@ -18,7 +19,8 @@ Source3:        %{name}.if
 BuildRequires:  pam-devel 
 BuildRequires:  checkpolicy
 BuildRequires:  selinux-policy-devel
-
+BuildRequires:  policycoreutils-python
+ 
 %description
 pam_script is a module which allows to execute scripts after opening
 and/or closing a session using PAM.
