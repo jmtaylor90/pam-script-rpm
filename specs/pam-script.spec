@@ -4,7 +4,7 @@
 
 Name:           pam-script
 Version:        1.1.7
-Release:        0%{?dist}
+Release:        1%{?dist}
 Summary:        PAM module for executing scripts
 
 Group:          Applications/System
@@ -88,5 +88,5 @@ restorecon "%{_sysconfdir}/pam-script.d/*"
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Thu May 01 2014 Jason Taylor <jason.taylor@secure-24.com> 1.1.7-0
+* Thu May 01 2014 Jason Taylor <jason.taylor@secure-24.com> 1.1.7-1
 - Initial RPM build
