@@ -19,10 +19,6 @@ BuildRequires:  pam-devel
 BuildRequires:  checkpolicy
 BuildRequires:  selinux-policy-devel
 
-Requires:       pam       
-Requires:       policycoreutils
-Requires:       policycoreutils-python
-
 %description
 pam_script is a module which allows to execute scripts after opening
 and/or closing a session using PAM.
