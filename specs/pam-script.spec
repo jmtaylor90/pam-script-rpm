@@ -16,11 +16,15 @@ Source1:        %{name}.te
 Source2:        %{name}.fc
 Source3:        %{name}.if
 
+%{?el5:BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)}
+
 BuildRequires:  pam-devel 
 BuildRequires:  checkpolicy
 BuildRequires:  selinux-policy-devel
+%if 0%{?rhel} > 5 || 0%{?fedora}
 BuildRequires:  policycoreutils-python
- 
+%endif
+
 %description
 pam_script is a module which allows to execute scripts after opening
 and/or closing a session using PAM.
@@ -46,6 +50,7 @@ done
 cd -
 
 %install
+%{?el5:rm -rf %{buildroot}}
 make install DESTDIR=%{buildroot}
 
 rm %{buildroot}%{_sysconfdir}/README
@@ -56,6 +61,9 @@ do
   install -p -m 644 SELinux/%{name}.pp.${selinuxvariant} \
     %{buildroot}%{_datadir}/selinux/${selinuxvariant}/%{name}.pp
 done
+
+%clean
+%{?el5:rm -rf %{buildroot}}
 
 %post
 for selinuxvariant in %{selinux_variants}
