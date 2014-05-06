@@ -1,2 +1,8 @@
 - fix spec file to be compatible with epel 5 builds
 - review man page and documentation for accuracy
+- make sure no libtool archives are present in package (.la)
+- remove m4 macros (https://fedorahosted.org/FedoraReview/wiki/AutoTools)
+- submit package
+  - include rpmlint output
+  - include spec and srpm links
+  - include scratch build info
