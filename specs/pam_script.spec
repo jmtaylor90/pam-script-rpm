@@ -5,7 +5,7 @@
 %global selinux_variants mls strict targeted
 %global selinux_policyver %(%{__sed} -e 's,.*selinux-policy-\\([^/]*\\)/.*,\\1,' /usr/share/selinux/devel/policyhelp || echo 0.0.0)
 
-Name:           pam-script
+Name:           pam_script
 Version:        1.1.7
 Release:        1%{?dist}
 Summary:        PAM module for executing scripts
