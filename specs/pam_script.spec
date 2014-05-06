@@ -96,5 +96,5 @@ restorecon "%{_sysconfdir}/pam-script.d/*"
 %{_datadir}/selinux/*/%{name}.pp
 
 %changelog
-* Sun May 04 2014 Jason Taylor <jason.taylor@secure-24.com> 1.1.7-1
+* Tue May 06 2014 Jason Taylor <jason.taylor@secure-24.com> 1.1.7-1
 - Initial RPM build
