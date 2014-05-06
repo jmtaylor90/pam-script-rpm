@@ -64,7 +64,7 @@ do
     %{buildroot}%{_datadir}/selinux/${selinuxvariant}/%{name}.pp
 done
 
-%clean
+%{?el5:%clean}
 %{?el5:rm -rf %{buildroot}}
 
 %post
@@ -84,8 +84,8 @@ fi
 
 %posttrans
 # apply new SELinux file context
-restorecon "%{_sysconfdir}/pam_script*"
-restorecon "%{_sysconfdir}/pam-script.d/*"
+restorecon %{_sysconfdir}/pam_script*
+restorecon %{_sysconfdir}/pam-script.d/
 
 %files
 %doc AUTHORS COPYING ChangeLog README NEWS etc/README.module_types etc/README.pam_script SELinux/*
