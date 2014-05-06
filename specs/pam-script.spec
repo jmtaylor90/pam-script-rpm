@@ -1,3 +1,5 @@
+%global commit 1bb6718fa767107e97893c5fe538420ef249b0a0
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global _hardened_build 1
 %global upstream_name pam_script
 %global selinux_variants mls strict targeted
@@ -11,7 +13,7 @@ Summary:        PAM module for executing scripts
 Group:          Applications/System
 License:        GPLv2
 URL:            https://github.com/jeroennijhof/pam_script
-Source0:        %{name}-%{version}.tar.gz
+Source0:        https://github.com/jeroennijhof/pam_script/archive/%{commit}/pam_script-%{commit}.tar.gz
 Source1:        %{name}.te
 Source2:        %{name}.fc
 Source3:        %{name}.if
