@@ -1,2 +1,0 @@
-/etc/pam_script.*                                          system_u:object_r:bin_t:s0
-/etc/pam-script\.d/.*                                      system_u:object_r:bin_t:s0
