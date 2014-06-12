@@ -39,7 +39,6 @@ cd -
 %install
 %{?el5:rm -rf %{buildroot}}
 make install DESTDIR=%{buildroot}
-
 rm %{buildroot}%{_sysconfdir}/README
 
 %{?el5:%clean}
@@ -53,7 +52,7 @@ restorecon %{_sysconfdir}/pam-script.d/
 %doc AUTHORS COPYING ChangeLog README NEWS etc/README.module_types etc/README.pam_script 
 %dir %{_sysconfdir}/pam-script.d/
 %{_sysconfdir}/pam_script*
-/%{_lib}/security/*
+/%{_lib}/security/pam_script.so
 %{_mandir}/man7/%{upstream_name}.7*
 
 %changelog
