@@ -57,5 +57,5 @@ restorecon %{_sysconfdir}/pam-script.d/
 %{_mandir}/man7/%{upstream_name}.7*
 
 %changelog
-* Wed Jun 11 2014 Jason Taylor <jason.taylor@secure-24.com> - 1.1.7-1
+* Wed Jun 11 2014 Jason Taylor <jason.taylor@secure-24.com> - 1.1.7-2
 - Initial Build
