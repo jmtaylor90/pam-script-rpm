@@ -5,13 +5,13 @@
 
 Name:           pam_script
 Version:        1.1.7
-Release:        2.git%{shortcommit}%{?dist}
+Release:        1%{?dist}
 Summary:        PAM module for executing scripts
 
 Group:          Applications/System
 License:        GPLv2
 URL:            https://github.com/jeroennijhof/pam_script
-Source0:        https://github.com/jeroennijhof/pam_script/archive/%{commit}/%{upstream_name}-%{commit}.tar.gz
+Source0:        https://github.com/jeroennijhof/pam_script/archive/%{version}.tar.gz
 
 %{?el5:BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)}
 
@@ -21,11 +21,11 @@ BuildRequires:  automake
 BuildRequires:  libtool
 
 %description
-pam_script is a module which allows to execute scripts after opening
-and/or closing a session using PAM.
+pam_script allows you to execute scripts during authorization, password
+changes and session openings or closings.
 
 %prep
-%setup -qn %{upstream_name}-%{version}
+%setup -q
 
 cp etc/README etc/README.module_types
 autoreconf -vfi
@@ -39,6 +39,7 @@ cd -
 %install
 %{?el5:rm -rf %{buildroot}}
 make install DESTDIR=%{buildroot}
+
 rm %{buildroot}%{_sysconfdir}/README
 
 %{?el5:%clean}
@@ -52,9 +53,9 @@ restorecon %{_sysconfdir}/pam-script.d/
 %doc AUTHORS COPYING ChangeLog README NEWS etc/README.module_types etc/README.pam_script 
 %dir %{_sysconfdir}/pam-script.d/
 %{_sysconfdir}/pam_script*
-/%{_lib}/security/pam_script.so
+/%{_lib}/security/*
 %{_mandir}/man7/%{upstream_name}.7*
 
 %changelog
-* Wed Jun 11 2014 Jason Taylor <jason.taylor@secure-24.com> - 1.1.7-2
+* Wed Jun 18 2014 Jason Taylor <jason.taylor@secure-24.com> - 1.1.7-1
 - Initial Build
