@@ -13,7 +13,7 @@ License:        GPLv2
 URL:            https://github.com/jeroennijhof/pam_script
 Source0:        https://github.com/jeroennijhof/pam_script/archive/%{version}.tar.gz
 
-%{?el5:BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)}
+BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 BuildRequires:  pam-devel 
 BuildRequires:  autoconf
@@ -27,32 +27,26 @@ changes and session openings or closings.
 %prep
 %setup -q
 
-cp etc/README etc/README.module_types
+#generate our configure script
 autoreconf -vfi
 
 %build
 %configure --libdir=/%{_lib}/security
 make %{?_smp_mflags}
 
-cd -
-
 %install
-%{?el5:rm -rf %{buildroot}}
+rm -rf %{buildroot}
 make install DESTDIR=%{buildroot}
 
 rm %{buildroot}%{_sysconfdir}/README
 
-%{?el5:%clean}
-%{?el5:rm -rf %{buildroot}}
-
-%posttrans
-restorecon %{_sysconfdir}/pam_script*
-restorecon %{_sysconfdir}/pam-script.d/
+%clean
+rm -rf %{buildroot}
 
 %files
-%doc AUTHORS COPYING ChangeLog README NEWS etc/README.module_types etc/README.pam_script 
-%dir %{_sysconfdir}/pam-script.d/
-%{_sysconfdir}/pam_script*
+%doc AUTHORS COPYING ChangeLog README NEWS etc/README.pam_script 
+%config(noreplace) %dir %{_sysconfdir}/pam-script.d/
+%config(noreplace) %{_sysconfdir}/pam_script*
 /%{_lib}/security/*
 %{_mandir}/man7/%{upstream_name}.7*
 
