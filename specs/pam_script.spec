@@ -1,7 +1,8 @@
-%global commit 33148ff1c207b05add7b7f6616d46029447e6766
+#%global commit 33148ff1c207b05add7b7f6616d46029447e6766
+%global commit 1bb6718fa767107e97893c5fe538420ef249b0a0
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global _hardened_build 1
-%global upstream_name pam-script
+%global upstream_name pam-script 
 
 Name:           pam_script
 Version:        1.1.7
@@ -9,9 +10,9 @@ Release:        1%{?dist}
 Summary:        PAM module for executing scripts
 
 Group:          Applications/System
-License:        GPLv2
+License:        GPLv2+
 URL:            https://github.com/jeroennijhof/pam_script
-Source0:        https://github.com/jeroennijhof/pam_script/archive/%{version}.tar.gz
+Source0:        https://github.com/jeroennijhof/pam_script/archive/%{commit}/pam_script-%{commit}.tar.gz
 
 BuildRoot: %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
@@ -25,7 +26,7 @@ pam_script allows you to execute scripts during authorization, password
 changes and session openings or closings.
 
 %prep
-%setup -q
+%setup -qn %{name}-%{commit}
 
 #generate our configure script
 autoreconf -vfi
