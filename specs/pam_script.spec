@@ -1,7 +1,7 @@
 %global commit 1bb6718fa767107e97893c5fe538420ef249b0a0
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global _hardened_build 1
-%global upstream_name pam-script 
+%global upstream_name pam-script
 
 Name:           pam_script
 Version:        1.1.7
