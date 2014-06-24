@@ -1,4 +1,3 @@
-#%global commit 33148ff1c207b05add7b7f6616d46029447e6766
 %global commit 1bb6718fa767107e97893c5fe538420ef249b0a0
 %global shortcommit %(c=%{commit}; echo ${c:0:7})
 %global _hardened_build 1
