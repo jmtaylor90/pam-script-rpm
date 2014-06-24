@@ -51,5 +51,5 @@ rm -rf %{buildroot}
 %{_mandir}/man7/%{upstream_name}.7*
 
 %changelog
-* Wed Jun 18 2014 Jason Taylor <jason.taylor@secure-24.com> - 1.1.7-1
+* Tue Jun 24 2014 Jason Taylor <jason.taylor@secure-24.com> - 1.1.7-1
 - Initial Build
